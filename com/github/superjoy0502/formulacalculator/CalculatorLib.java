@@ -21,6 +21,7 @@ public class CalculatorLib {
 	
 	public double answer;
 	public String unit;
+	public String answerString;
 	
 	public double Multiply(double a, double b) {
 		return a*b;

@@ -15,7 +15,6 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-
 package com.github.superjoy0502.formulacalculator;
 
 import javax.swing.JOptionPane;
@@ -46,23 +45,23 @@ public class Calculator {
 			double b = Double.parseDouble(JOptionPane.showInputDialog("Enter Resistance:"));
 			li.answer = li.Multiply(a, b);
 			li.unit = "V";
-		}
-		else if (o.equalsIgnoreCase("I")) {
+			li.answerString = "Voltage";
+		} else if (o.equalsIgnoreCase("I")) {
 			double a = Double.parseDouble(JOptionPane.showInputDialog("Enter Voltage:"));
 			double b = Double.parseDouble(JOptionPane.showInputDialog("Enter Resistance:"));
 			li.answer = li.Divide(a, b);
 			li.unit = "A";
-		}
-		else if (o.equalsIgnoreCase("R")) {
+			li.answerString = "Amperage";
+		} else if (o.equalsIgnoreCase("R")) {
 			double a = Double.parseDouble(JOptionPane.showInputDialog("Enter Voltage:"));
 			double b = Double.parseDouble(JOptionPane.showInputDialog("Enter Amperage:"));
 			li.answer = li.Divide(a, b);
 			li.unit = "Ω";
-		}
-		else {
+			li.answerString = "Ohms";
+		} else {
 			return;
 		}
-		displayString = "Answer: " + li.answer + li.unit;
+		displayString = li.answerString + ": " + li.answer + li.unit;
 		label1.setText(displayString);
 		label1.setHorizontalAlignment(SwingConstants.CENTER);
 		label1.setVerticalAlignment(SwingConstants.CENTER);
@@ -70,11 +69,11 @@ public class Calculator {
 		label1.setFont(font);
 		label1.setOpaque(true);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		f.setLocation((dim.width/3-f.getSize().width/2), (dim.height/4-f.getSize().height/2));
+		f.setLocation((dim.width / 3 - f.getSize().width / 2), (dim.height / 4 - f.getSize().height / 2));
 		f.setSize(600, 500);
 		f.add(label1);
 		f.setVisible(true);
-		
+
 	}
 
 }
