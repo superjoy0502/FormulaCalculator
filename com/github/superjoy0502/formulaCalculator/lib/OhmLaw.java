@@ -15,19 +15,25 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-package com.github.superjoy0502.formulacalculator;
+package com.github.superjoy0502.formulaCalculator.lib;
 
-public class CalculatorLib {
-	
-	public double answer;
-	public String unit;
-	public String answerString;
-	
-	public double Multiply(double a, double b) {
-		return a*b;
-		
-	}
-	public double Divide(double a, double b) {
-		return a/b;
-	}
+public class OhmLaw {
+
+    public double answer;
+    public String unit;
+    public String answerString;
+
+    public double getVoltage(double I, double R){
+        return I * R;
+    }
+
+    public double getCurrent(double V, double R){
+        return V / R;
+    }
+
+    public double getResistance(double V, double I){
+        return V / I;
+    }
+
+
 }
