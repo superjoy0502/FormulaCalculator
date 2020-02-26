@@ -81,6 +81,7 @@ public class Calculator {
     } // Display final window
 
     private static void configFrame() {
+        f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         f.setSize(800, 300);
         f.setLocation((dim.width / 2 - f.getSize().width / 2), (dim.height / 2 - f.getSize().height / 2));
         f.add(label1);
