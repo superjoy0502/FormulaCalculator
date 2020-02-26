@@ -24,9 +24,9 @@ import com.github.superjoy0502.formulaCalculator.lib.OhmLaw;
 
 public class Calculator {
 
-    public static JFrame f = new JFrame("Result");
-    public static OhmLaw ohmLaw = new OhmLaw();
-    static String o = JOptionPane.showInputDialog("Enter Calculation (V, I, R):");
+    private static JFrame f = new JFrame("Result");
+    private static OhmLaw ohmLaw = new OhmLaw();
+    private static String o = JOptionPane.showInputDialog("Enter Calculation (V, I, R):");
     private static JLabel label1;
     private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     private static String displayString;
