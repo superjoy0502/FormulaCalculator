@@ -81,8 +81,8 @@ public class Calculator {
     } // Display final window
 
     private static void configFrame() {
-        f.setLocation((dim.width / 3 - f.getSize().width / 2), (dim.height / 4 - f.getSize().height / 2));
-        f.setSize(600, 500);
+        f.setSize(800, 300);
+        f.setLocation((dim.width / 2 - f.getSize().width / 2), (dim.height / 2 - f.getSize().height / 2));
         f.add(label1);
         f.setVisible(true);
     } // Configure JFrame that makes the final window
