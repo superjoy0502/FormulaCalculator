@@ -15,37 +15,40 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
+// Package
 package com.github.superjoy0502.formulaCalculator.java;
 
+// Import Libraries
 import javax.swing.*;
 import java.awt.*;
-
 import com.github.superjoy0502.formulaCalculator.lib.OhmLaw;
 
+// Main Class
 public class Calculator {
 
-    private static JFrame f = new JFrame("Result");
-    private static OhmLaw ohmLaw = new OhmLaw();
-    private static String o = JOptionPane.showInputDialog("Enter Calculation (V, I, R):");
-    private static JLabel label1;
-    private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-    private static String displayString;
-    private static Font font = new Font("Roboto", Font.PLAIN, 48);
+    // Variable Declarations
+    private static JFrame f = new JFrame("Result"); // JFrame instance
+    private static OhmLaw ohmLaw = new OhmLaw(); // Using OhmLaw library as an instance
+    private static String o = JOptionPane.showInputDialog("Enter Calculation (V, I, R):"); // Getting calculation option from user
+    private static JLabel label1; // Text in window
+    private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); // Dimension of user's screen for centering window
+    private static String displayString; // String that will be displayed as the result
+    private static Font font = new Font("Roboto", Font.PLAIN, 48); // Font that will be used in the final window
 
     public static void main(String[] args) {
-        label1 = new JLabel("");
+        label1 = new JLabel(""); // Assigning empty text to avoid NullPointerException
 
-        if (o.equalsIgnoreCase("V")) {
-            doVoltageCalculation();
-        } else if (o.equalsIgnoreCase("I")) {
-            doCurrentCalculation();
-        } else if (o.equalsIgnoreCase("R")) {
-            doResistanceCalculation();
-        } else {
+        if (o.equalsIgnoreCase("V")) { // Check if user option is "V"
+            doVoltageCalculation(); // If user option is "V", do voltage calculation
+        } else if (o.equalsIgnoreCase("I")) { // Check if user option is "I"
+            doCurrentCalculation(); // If user option is "I", do voltage calculation
+        } else if (o.equalsIgnoreCase("R")) { // Check if user option is "R"
+            doResistanceCalculation(); // If user option is "R", do voltage calculation
+        } else { // If user option is nothing, end program
             return;
         }
-        display();
-    }
+        display(); // Display final window
+    } // Main Method
 
     private static void doResistanceCalculation() {
         double a = Double.parseDouble(JOptionPane.showInputDialog("Enter Voltage:"));
@@ -53,7 +56,7 @@ public class Calculator {
         ohmLaw.answer = ohmLaw.getResistance(a, b);
         ohmLaw.unit = "Ω";
         ohmLaw.answerString = "Ohms";
-    }
+    } // Get input from user and do resistance calculation
 
     private static void doCurrentCalculation() {
         double a = Double.parseDouble(JOptionPane.showInputDialog("Enter Voltage:"));
@@ -61,7 +64,7 @@ public class Calculator {
         ohmLaw.answer = ohmLaw.getCurrent(a, b);
         ohmLaw.unit = "A";
         ohmLaw.answerString = "Amps";
-    }
+    } // Get input from user and do current calculation
 
     private static void doVoltageCalculation() {
         double a = Double.parseDouble(JOptionPane.showInputDialog("Enter Current:"));
@@ -69,20 +72,20 @@ public class Calculator {
         ohmLaw.answer = ohmLaw.getVoltage(a, b);
         ohmLaw.unit = "V";
         ohmLaw.answerString = "Volts";
-    }
+    } // Get input from user and do voltage calculation
 
     private static void display() {
         displayString = ohmLaw.answerString + ": " + ohmLaw.answer + ohmLaw.unit;
         configLabel();
         configFrame();
-    }
+    } // Display final window
 
     private static void configFrame() {
         f.setLocation((dim.width / 3 - f.getSize().width / 2), (dim.height / 4 - f.getSize().height / 2));
         f.setSize(600, 500);
         f.add(label1);
         f.setVisible(true);
-    }
+    } // Configure JFrame that makes the final window
 
     private static void configLabel() {
         label1.setText(displayString);
@@ -90,6 +93,6 @@ public class Calculator {
         label1.setVerticalAlignment(SwingConstants.CENTER);
         label1.setFont(font);
         label1.setOpaque(true);
-    }
+    } // Configure text in the final window
 
 }
