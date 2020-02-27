@@ -53,47 +53,47 @@ public class Calculator {
     private static void doResistanceCalculation() {
         double a = Double.parseDouble(JOptionPane.showInputDialog("Enter Voltage:"));
         double b = Double.parseDouble(JOptionPane.showInputDialog("Enter Current:"));
-        ohmLaw.answer = ohmLaw.getResistance(a, b);
-        ohmLaw.unit = "Ω";
-        ohmLaw.answerString = "Ohms";
+        ohmLaw.answer = ohmLaw.getResistance(a, b); // Calculate
+        ohmLaw.unit = "Ω"; // Set unit to Ω
+        ohmLaw.answerString = "Ohms"; // Set Answer string to "Ohms"
     } // Get input from user and do resistance calculation
 
     private static void doCurrentCalculation() {
         double a = Double.parseDouble(JOptionPane.showInputDialog("Enter Voltage:"));
         double b = Double.parseDouble(JOptionPane.showInputDialog("Enter Resistance:"));
-        ohmLaw.answer = ohmLaw.getCurrent(a, b);
-        ohmLaw.unit = "A";
-        ohmLaw.answerString = "Amps";
+        ohmLaw.answer = ohmLaw.getCurrent(a, b); // Calculate
+        ohmLaw.unit = "A"; // Set unit to A
+        ohmLaw.answerString = "Amps"; // Set Answer string to "Amps"
     } // Get input from user and do current calculation
 
     private static void doVoltageCalculation() {
         double a = Double.parseDouble(JOptionPane.showInputDialog("Enter Current:"));
         double b = Double.parseDouble(JOptionPane.showInputDialog("Enter Resistance:"));
-        ohmLaw.answer = ohmLaw.getVoltage(a, b);
-        ohmLaw.unit = "V";
-        ohmLaw.answerString = "Volts";
+        ohmLaw.answer = ohmLaw.getVoltage(a, b); // Calculate
+        ohmLaw.unit = "V"; // Set unit to V
+        ohmLaw.answerString = "Volts"; // Set Answer string to "Volts"
     } // Get input from user and do voltage calculation
 
     private static void display() {
-        displayString = ohmLaw.answerString + ": " + ohmLaw.answer + ohmLaw.unit;
-        configLabel();
-        configFrame();
+        configLabel(); // Configure Text
+        configFrame(); // Configure Window
     } // Display final window
 
     private static void configFrame() {
-        f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        f.setSize(800, 300);
-        f.setLocation((dim.width / 2 - f.getSize().width / 2), (dim.height / 2 - f.getSize().height / 2));
-        f.add(label1);
-        f.setVisible(true);
+        f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // Let process end when the window is closed
+        f.setSize(800, 300); // Set window size
+        f.setLocation((dim.width / 2 - f.getSize().width / 2), (dim.height / 2 - f.getSize().height / 2)); // Make window center in monitor
+        f.add(label1); // Add text to window
+        f.setVisible(true); // Make window visible
     } // Configure JFrame that makes the final window
 
     private static void configLabel() {
-        label1.setText(displayString);
-        label1.setHorizontalAlignment(SwingConstants.CENTER);
-        label1.setVerticalAlignment(SwingConstants.CENTER);
-        label1.setFont(font);
-        label1.setOpaque(true);
+        displayString = ohmLaw.answerString + ": " + ohmLaw.answer + ohmLaw.unit; // Set text
+        label1.setText(displayString); // Set label text
+        label1.setHorizontalAlignment(SwingConstants.CENTER); // Center label
+        label1.setVerticalAlignment(SwingConstants.CENTER); // Center label
+        label1.setFont(font); // Set font for the text
+        label1.setOpaque(true); // Make label visible
     } // Configure text in the final window
 
 }
